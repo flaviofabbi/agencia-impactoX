@@ -159,17 +159,18 @@ export const Dashboard: React.FC = () => {
         </motion.div>
       )}
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {cards.map((card, idx) => (
           <motion.div
             key={card.label}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1 }}
-            className="rounded-2xl bg-white p-6 shadow-sm border border-slate-100"
+            whileHover={{ y: -4 }}
+            className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/5"
           >
             <div className="flex items-start justify-between">
-              <div className={cn("rounded-xl p-3 text-white shadow-lg", card.color)}>
+              <div className={cn("rounded-xl p-3 text-white shadow-lg transition-transform duration-300 group-hover:scale-110", card.color)}>
                 <card.icon size={24} />
               </div>
               {card.trendUp !== null && (
